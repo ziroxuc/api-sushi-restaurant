@@ -5,32 +5,22 @@ import (
 	"encoding/json"
 	mo "../models"
 	"fmt"
-	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"time"
 	"github.com/gorilla/mux"
 	"log"
 	"strconv"
+	db "../dbConnection"
 )
 
-func getSession() *mgo.Session {
-	session, error := mgo.Dial("mongodb://localhost")
-	if (error != nil) {
-		panic(error)
-	}
-	return session
-}
 
-var collection = getSession().DB("sushi-restaurant-db").C("pedidos")
+var cPedidos = db.GetCollectionPedidos()
 
-func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Servidor funciona")
-}
 
 func AllPedidosEndPoint(w http.ResponseWriter, r *http.Request) {
 
 	var pedidos []mo.Pedido
-	err := collection.Find(nil).Sort("+id_sushi").All(&pedidos)
+	err := cPedidos.Find(nil).Sort("+id_sushi").All(&pedidos)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
@@ -54,7 +44,7 @@ func CreatePedidoEndPoint(w http.ResponseWriter, r *http.Request) {
 	var timeMod = t.Format("02-01-2006 15:04:05")
 	pedido.Fecha_creacion = timeMod
 
-	if err := collection.Insert(pedido); err != nil {
+	if err := cPedidos.Insert(pedido); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -70,7 +60,7 @@ func FindPedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 	var resultado mo.Pedido
 
 	idConv,_ := strconv.Atoi(pedidoId);
-	err := collection.Find(bson.M{"id_sushi":idConv}).One(&resultado)
+	err := cPedidos.Find(bson.M{"id_sushi":idConv}).One(&resultado)
 	if (err != nil) {
 		log.Fatal(err)
 	}
