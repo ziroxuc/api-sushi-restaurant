@@ -12,6 +12,7 @@ func main(){
 	r := mux.NewRouter()
 
 	r.HandleFunc("/pedido/{id}", actions.FindPedidoEndpoint).Methods("GET")
+	r.HandleFunc("/pedidoId/{id}", actions.FindPedidoIdEndpoint).Methods("GET")
 	r.HandleFunc("/pedidos", actions.AllPedidosEndPoint).Methods("GET")
 	r.HandleFunc("/pedido", actions.CreatePedidoEndPoint).Methods("POST")
 	//r.HandleFunc("/movies", DeleteMovieEndPoint).Methods("DELETE")

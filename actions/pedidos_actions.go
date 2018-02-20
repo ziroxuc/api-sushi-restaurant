@@ -60,7 +60,28 @@ func FindPedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 	var resultado mo.Pedido
 
 	idConv,_ := strconv.Atoi(pedidoId);
-	err := cPedidos.Find(bson.M{"id_sushi":idConv}).One(&resultado)
+	err := cPedidos.Find(bson.M{"id":idConv}).One(&resultado)
+	if (err != nil) {
+		log.Fatal(err)
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(resultado)
+}
+
+func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	pedidoId := params["id"]
+
+	if !bson.IsObjectIdHex(pedidoId){
+		w.WriteHeader(http.StatusNotFound)
+		return
+	}
+
+	oid := bson.IsObjectIdHex(pedidoId)
+
+	var resultado mo.Pedido
+	err := cPedidos.Find(oid).One(&resultado)
 	if (err != nil) {
 		log.Fatal(err)
 	}
