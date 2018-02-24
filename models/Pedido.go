@@ -5,7 +5,7 @@ import (
 	)
 
 type Pedido struct {
-	ID             bson.ObjectId `bson:"_id" json:"id"`
+	ID             bson.ObjectId `bson:"_id" json:"_id"`
 	Productos	  `bson:"productos" json:"productos"`
 	DatosUsuarios  `bson:"datosUsuario" json:"datosUsuario"`
 	Domicilio bool		`bson:"domicilio" json:"domicilio"`

@@ -16,6 +16,18 @@ import (
 
 var cPedidos = db.GetCollectionPedidos()
 
+func respondWithError(w http.ResponseWriter, code int, message string) {
+	respondWithJSON(w, code, map[string]string{"error": message})
+}
+
+func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
+	response, _ := json.Marshal(payload)
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(code)
+	w.Write(response)
+}
+
 
 func AllPedidosEndPoint(w http.ResponseWriter, r *http.Request) {
 
@@ -72,16 +84,13 @@ func FindPedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	pedidoId := params["id"]
+	 var resultado mo.Pedido
 
 	if !bson.IsObjectIdHex(pedidoId){
 		w.WriteHeader(http.StatusNotFound)
 		return
 	}
-
-	oid := bson.IsObjectIdHex(pedidoId)
-
-	var resultado mo.Pedido
-	err := cPedidos.Find(oid).One(&resultado)
+	err := cPedidos.FindId(bson.ObjectIdHex(pedidoId)).One(&resultado)
 	if (err != nil) {
 		log.Fatal(err)
 	}
@@ -89,3 +98,41 @@ func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(resultado)
 }
+
+func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	params := mux.Vars(r)
+	pedidoId := params["id"]
+
+	if !bson.IsObjectIdHex(pedidoId){
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	decoder := json.NewDecoder(r.Body)
+	var pedido_data mo.Pedido
+
+	err := decoder.Decode(&pedido_data)
+	if (err != nil) {
+		respondWithError(w, http.StatusInternalServerError, "Error al enviar json de productos.")
+		return
+	}
+	defer r.Body.Close()
+
+	idDeserialize := bson.ObjectIdHex(pedidoId);
+
+	document := bson.M{"_id":idDeserialize}
+	change := bson.M{"$set":pedido_data}
+
+	error := cPedidos.Update(document,change)
+
+	if(error != nil){
+		log.Fatal(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(pedido_data)
+}
+

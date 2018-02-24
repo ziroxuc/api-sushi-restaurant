@@ -11,12 +11,14 @@ import (
 func main(){
 	r := mux.NewRouter()
 
-	r.HandleFunc("/pedido/{id}", actions.FindPedidoEndpoint).Methods("GET")
-	r.HandleFunc("/pedidoId/{id}", actions.FindPedidoIdEndpoint).Methods("GET")
+	//r.HandleFunc("/pedido/{id}", actions.FindPedidoEndpoint).Methods("GET")
+	r.HandleFunc("/pedido/{id}", actions.FindPedidoIdEndpoint).Methods("GET")
 	r.HandleFunc("/pedidos", actions.AllPedidosEndPoint).Methods("GET")
 	r.HandleFunc("/pedido", actions.CreatePedidoEndPoint).Methods("POST")
+	r.HandleFunc("/pedido/{id}", actions.UpdatePedidoEndpoint).Methods("PUT")
 	//r.HandleFunc("/movies", DeleteMovieEndPoint).Methods("DELETE")
 	//r.HandleFunc("/movies/{id}", FindMovieEndpoint).Methods("GET")
+
 
 
 	// handlers productos
@@ -26,6 +28,8 @@ func main(){
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"http://localhost:4200","http://localhost:4300"},
 		AllowCredentials: true,
+		AllowedHeaders:[]string{"X-Requested-With","content-type"},
+		AllowedMethods:[]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"},
 	})
 	handler := c.Handler(r)
 
