@@ -4,13 +4,13 @@ import (
 	"net/http"
 	"encoding/json"
 	mo "../models"
-	"fmt"
 	"gopkg.in/mgo.v2/bson"
 	"time"
 	"github.com/gorilla/mux"
 	"log"
 	"strconv"
 	db "../dbConnection"
+
 )
 
 
@@ -28,27 +28,22 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 	w.Write(response)
 }
 
-
 func AllPedidosEndPoint(w http.ResponseWriter, r *http.Request) {
-
 	var pedidos []mo.Pedido
 	err := cPedidos.Find(nil).Sort("+id_sushi").All(&pedidos)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		respondWithError(w, http.StatusInternalServerError, "No se encontraron registros en la coleccion.")
 		return
 	}
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(pedidos)
+	respondWithJSON(w,http.StatusOK,pedidos)
 }
 
 func CreatePedidoEndPoint(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	var pedido mo.Pedido
-	if err := json.NewDecoder(r.Body).Decode(&pedido); err != nil {
 
-		fmt.Println(err)
-		log.Fatal(err)
-		w.WriteHeader(http.StatusBadRequest)
+	if err := json.NewDecoder(r.Body).Decode(&pedido); err != nil {
+		respondWithError(w, http.StatusInternalServerError, "Error al leer el body.")
 		return
 	}
 	pedido.ID = bson.NewObjectId()
@@ -57,12 +52,10 @@ func CreatePedidoEndPoint(w http.ResponseWriter, r *http.Request) {
 	pedido.Fecha_creacion = timeMod
 
 	if err := cPedidos.Insert(pedido); err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		respondWithError(w, http.StatusBadRequest, "No se pudo insertar el resgistro.")
 		return
 	}
-	w.Header().Set("Content-Type","application/json")
-	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(pedido)
+	respondWithJSON(w,http.StatusCreated,pedido)
 }
 
 func FindPedidoEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -70,15 +63,12 @@ func FindPedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 	pedidoId := params["id"]
 
 	var resultado mo.Pedido
-
 	idConv,_ := strconv.Atoi(pedidoId);
 	err := cPedidos.Find(bson.M{"id":idConv}).One(&resultado)
 	if (err != nil) {
-		log.Fatal(err)
+		respondWithError(w, http.StatusNotFound, "No se encontró el registro.")
 	}
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(resultado)
+	respondWithJSON(w,http.StatusOK,resultado)
 }
 
 func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -87,16 +77,14 @@ func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
 	 var resultado mo.Pedido
 
 	if !bson.IsObjectIdHex(pedidoId){
-		w.WriteHeader(http.StatusNotFound)
+		respondWithError(w, http.StatusInternalServerError, "No es un ObjectIDHex.")
 		return
 	}
 	err := cPedidos.FindId(bson.ObjectIdHex(pedidoId)).One(&resultado)
 	if (err != nil) {
-		log.Fatal(err)
+		respondWithError(w, http.StatusNotFound, "No se encontró el registro.")
 	}
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(resultado)
+	respondWithJSON(w,http.StatusOK,resultado)
 }
 
 func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -134,5 +122,21 @@ func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(pedido_data)
+}
+
+func GetPedidosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	status := params["status"]
+	var pedidos []mo.Pedido
+
+	var idEstado,erro = strconv.Atoi(status)
+	if erro!= nil{
+		respondWithError(w, http.StatusInternalServerError, "Error al convertir parametro int.")
+	}
+	err := cPedidos.Find(bson.M{"estado":idEstado}).All(&pedidos)
+	if (err != nil) {
+		respondWithError(w, http.StatusNotFound, "No se encontró el registro.")
+	}
+	respondWithJSON(w,http.StatusOK,pedidos)
 }
 

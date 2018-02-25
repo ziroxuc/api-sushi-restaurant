@@ -22,3 +22,13 @@ func GetCollectionProductos() *mgo.Collection{
 	var collectionProductos= GetSession().DB(DATABASE_NAME).C("productos")
 	return collectionProductos
 }
+
+func GetCollectionEstados() *mgo.Collection{
+	var collectionProductos= GetSession().DB(DATABASE_NAME).C("estados")
+	return collectionProductos
+}
+
+func GetCollectionCategorias() *mgo.Collection{
+	var collectionProductos= GetSession().DB(DATABASE_NAME).C("categorias")
+	return collectionProductos
+}

@@ -16,12 +16,16 @@ func main(){
 	r.HandleFunc("/pedidos", actions.AllPedidosEndPoint).Methods("GET")
 	r.HandleFunc("/pedido", actions.CreatePedidoEndPoint).Methods("POST")
 	r.HandleFunc("/pedido/{id}", actions.UpdatePedidoEndpoint).Methods("PUT")
+	r.HandleFunc("/pedidoByEstado/{status}", actions.GetPedidosPorEstadodEndpoint).Methods("GET")
 	//r.HandleFunc("/movies", DeleteMovieEndPoint).Methods("DELETE")
 	//r.HandleFunc("/movies/{id}", FindMovieEndpoint).Methods("GET")
 
+	// Handlers estados
+	r.HandleFunc("/estados", actions.GetAllEstadosEndPoint).Methods("GET")
 
 
-	// handlers productos
+
+	// Handlers productos
 	r.HandleFunc("/producto", actions.CreateProductoEndPoint).Methods("POST")
 
 
