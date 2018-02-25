@@ -17,6 +17,8 @@ func main(){
 	r.HandleFunc("/pedido", actions.CreatePedidoEndPoint).Methods("POST")
 	r.HandleFunc("/pedido/{id}", actions.UpdatePedidoEndpoint).Methods("PUT")
 	r.HandleFunc("/pedidoByEstado/{status}", actions.GetPedidosPorEstadodEndpoint).Methods("GET")
+	r.HandleFunc("/pedidosCount", actions.GetCantRegistrosByEstadosEndpoint).Methods("POST")
+
 	//r.HandleFunc("/movies", DeleteMovieEndPoint).Methods("DELETE")
 	//r.HandleFunc("/movies/{id}", FindMovieEndpoint).Methods("GET")
 

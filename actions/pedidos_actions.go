@@ -10,9 +10,7 @@ import (
 	"log"
 	"strconv"
 	db "../dbConnection"
-
 )
-
 
 var cPedidos = db.GetCollectionPedidos()
 
@@ -101,7 +99,7 @@ func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 
 	err := decoder.Decode(&pedido_data)
 	if (err != nil) {
-		respondWithError(w, http.StatusInternalServerError, "Error al enviar json de productos.")
+		respondWithError(w, http.StatusInternalServerError, "Error al enviar json de pedido.")
 		return
 	}
 	defer r.Body.Close()
@@ -139,4 +137,32 @@ func GetPedidosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
 	}
 	respondWithJSON(w,http.StatusOK,pedidos)
 }
+
+func GetCantRegistrosByEstadosEndpoint(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	var estados []mo.EstadoObj
+	var cantPedidos []int
+	suma := 0
+
+	if err := json.NewDecoder(r.Body).Decode(&estados); err != nil {
+		respondWithError(w, http.StatusInternalServerError, "Error al leer el body y wea.")
+		return
+	}
+	for _, valor := range estados {
+		cantidadReg,err := cPedidos.Find(bson.M{"estado": valor.IdEstado}).Count()
+		if(err!= nil){
+			respondWithError(w, http.StatusInternalServerError, "Error al contar regstros del id: "+valor.Nombre)
+			return
+		}
+		cantPedidos = append(cantPedidos, cantidadReg)
+		suma += cantidadReg
+
+	}
+	cantPedidos = append(cantPedidos, suma)
+
+	respondWithJSON(w,http.StatusOK,cantPedidos)
+}
+
+
+
 

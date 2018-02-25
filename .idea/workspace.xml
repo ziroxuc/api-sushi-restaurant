@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b886ea-5526-45fd-942b-ffbd7bae0ba6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/actions/estados_actions.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/models/Estados.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/actions/pedidos_actions.go" afterPath="$PROJECT_DIR$/actions/pedidos_actions.go" />
-      <change beforePath="$PROJECT_DIR$/dbConnection/dbSession.go" afterPath="$PROJECT_DIR$/dbConnection/dbSession.go" />
       <change beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
-      <change beforePath="$PROJECT_DIR$/models/Pedido.go" afterPath="$PROJECT_DIR$/models/Pedido.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +18,8 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="33" />
+            <state relative-caret-position="118">
+              <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="e#14#105#0" expanded="true" />
               </folding>
@@ -31,65 +27,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pedidos_actions.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pedidos_actions.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/actions/pedidos_actions.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="126" column="33" lean-forward="false" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="33" />
+            <state relative-caret-position="327">
+              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding>
-                <element signature="e#17#171#0" expanded="true" />
+                <element signature="e#17#170#0" expanded="true" />
                 <element signature="n#!!block;n#respondWithError#0" expanded="false" />
                 <element signature="n#!!block;n#respondWithJSON#0" expanded="false" />
                 <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
                 <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
                 <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
                 <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
+                <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+                <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
+                <element signature="e#4055#4344#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="estados_actions.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/actions/estados_actions.go">
+      <file leaf-file-name="server.go" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Go/src/net/http/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-              <folding>
-                <element signature="e#17#78#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Productos.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Productos.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="25" />
+            <state relative-caret-position="151">
+              <caret line="1801" column="0" lean-forward="false" selection-start-line="1801" selection-start-column="0" selection-end-line="1801" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pedido.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Pedido.go">
+      <file leaf-file-name="mux.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/github.com/gorilla/mux/mux.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="21">
+              <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Estados.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Estados.go">
+      <file leaf-file-name="cors.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/github.com/rs/cors/cors.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="14" />
-              <folding>
-                <element signature="e#16#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -128,11 +112,11 @@
         <option value="$PROJECT_DIR$/models/Productos.go" />
         <option value="$PROJECT_DIR$/actions/productos_actions.go" />
         <option value="$PROJECT_DIR$/dbConnection/dbSession.go" />
-        <option value="$PROJECT_DIR$/actions/pedidos_actions.go" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/models/Pedido.go" />
         <option value="$PROJECT_DIR$/models/Estados.go" />
         <option value="$PROJECT_DIR$/actions/estados_actions.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/actions/pedidos_actions.go" />
       </list>
     </option>
   </component>
@@ -166,6 +150,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,7 +178,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,16 +223,16 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21543409" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21811362" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5083333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.44640943" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.42926046" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.5535906" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.57073957" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995327" sideWeight="0.46570203" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995327" sideWeight="0.45069668" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -268,7 +252,33 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="24" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/actions/pedidos_actions.go</url>
+          <line>141</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/actions/pedidos_actions.go</url>
+          <line>142</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/actions/pedidos_actions.go</url>
+          <line>146</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/actions/pedidos_actions.go</url>
+          <line>150</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -337,14 +347,16 @@
         <state relative-caret-position="819">
           <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="25" />
           <folding>
-            <element signature="e#17#171#0" expanded="true" />
+            <element signature="e#17#170#0" expanded="true" />
             <element signature="n#!!block;n#respondWithError#0" expanded="false" />
             <element signature="n#!!block;n#respondWithJSON#0" expanded="false" />
             <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
+            <element signature="e#4055#4344#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -361,9 +373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="27" />
-          <folding>
-            <element signature="e#17#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -397,9 +406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="27" />
-          <folding>
-            <element signature="e#17#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -441,14 +447,16 @@
         <state relative-caret-position="1071">
           <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
           <folding>
-            <element signature="e#17#171#0" expanded="true" />
+            <element signature="e#17#170#0" expanded="true" />
             <element signature="n#!!block;n#respondWithError#0" expanded="false" />
             <element signature="n#!!block;n#respondWithJSON#0" expanded="false" />
             <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
+            <element signature="e#4055#4344#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -491,14 +499,16 @@
         <state relative-caret-position="1071">
           <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
           <folding>
-            <element signature="e#17#171#0" expanded="true" />
+            <element signature="e#17#170#0" expanded="true" />
             <element signature="n#!!block;n#respondWithError#0" expanded="false" />
             <element signature="n#!!block;n#respondWithJSON#0" expanded="false" />
             <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
+            <element signature="e#4055#4344#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -542,14 +552,16 @@
         <state relative-caret-position="630">
           <caret line="41" column="67" lean-forward="false" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
           <folding>
-            <element signature="e#17#171#0" expanded="true" />
+            <element signature="e#17#170#0" expanded="true" />
             <element signature="n#!!block;n#respondWithError#0" expanded="false" />
             <element signature="n#!!block;n#respondWithJSON#0" expanded="false" />
             <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
+            <element signature="e#4055#4344#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -612,34 +624,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/net/http/transfer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="907" column="0" lean-forward="false" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/github.com/gorilla/mux/mux.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/github.com/rs/cors/cors.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dbConnection/dbSession.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -647,9 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="27" />
-          <folding>
-            <element signature="e#17#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -657,15 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="1703" column="0" lean-forward="false" selection-start-line="1703" selection-start-column="0" selection-end-line="1703" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -689,40 +665,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/actions/pedidos_actions.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="126" column="33" lean-forward="false" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="33" />
-          <folding>
-            <element signature="e#17#171#0" expanded="true" />
-            <element signature="n#!!block;n#respondWithError#0" expanded="false" />
-            <element signature="n#!!block;n#respondWithJSON#0" expanded="false" />
-            <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="33" />
-          <folding>
-            <element signature="e#14#105#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Productos.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="672">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="25" />
           <folding />
         </state>
@@ -731,18 +679,8 @@
     <entry file="file://$PROJECT_DIR$/models/Pedido.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Estados.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <element signature="e#16#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -751,7 +689,78 @@
         <state relative-caret-position="202">
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
-            <element signature="e#17#78#0" expanded="true" />
+            <element signature="e#17#78#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Estados.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="14" />
+          <folding>
+            <element signature="e#16#50#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/net/http/transfer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="906" column="0" lean-forward="false" selection-start-line="906" selection-start-column="0" selection-end-line="906" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/github.com/gorilla/mux/mux.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/github.com/rs/cors/cors.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="1801" column="0" lean-forward="false" selection-start-line="1801" selection-start-column="0" selection-end-line="1801" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#14#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actions/pedidos_actions.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <element signature="e#17#170#0" expanded="true" />
+            <element signature="n#!!block;n#respondWithError#0" expanded="false" />
+            <element signature="n#!!block;n#respondWithJSON#0" expanded="false" />
+            <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
+            <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
+            <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
+            <element signature="e#4055#4344#0" expanded="false" />
           </folding>
         </state>
       </provider>
