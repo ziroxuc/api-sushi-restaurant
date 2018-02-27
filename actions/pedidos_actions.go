@@ -10,30 +10,19 @@ import (
 	"log"
 	"strconv"
 	db "../dbConnection"
+	utils "../utils"
 )
 
 var cPedidos = db.GetCollectionPedidos()
-
-func respondWithError(w http.ResponseWriter, code int, message string) {
-	respondWithJSON(w, code, map[string]string{"error": message})
-}
-
-func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
-	response, _ := json.Marshal(payload)
-
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(code)
-	w.Write(response)
-}
 
 func AllPedidosEndPoint(w http.ResponseWriter, r *http.Request) {
 	var pedidos []mo.Pedido
 	err := cPedidos.Find(nil).Sort("+id_sushi").All(&pedidos)
 	if err != nil {
-		respondWithError(w, http.StatusInternalServerError, "No se encontraron registros en la coleccion.")
+		utils.RespondWithError(w, http.StatusInternalServerError, "No se encontraron registros en la coleccion.")
 		return
 	}
-	respondWithJSON(w,http.StatusOK,pedidos)
+	utils.RespondWithJSON(w,http.StatusOK,pedidos)
 }
 
 func CreatePedidoEndPoint(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +30,7 @@ func CreatePedidoEndPoint(w http.ResponseWriter, r *http.Request) {
 	var pedido mo.Pedido
 
 	if err := json.NewDecoder(r.Body).Decode(&pedido); err != nil {
-		respondWithError(w, http.StatusInternalServerError, "Error al leer el body.")
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al leer el body.")
 		return
 	}
 	pedido.ID = bson.NewObjectId()
@@ -50,10 +39,10 @@ func CreatePedidoEndPoint(w http.ResponseWriter, r *http.Request) {
 	pedido.Fecha_creacion = timeMod
 
 	if err := cPedidos.Insert(pedido); err != nil {
-		respondWithError(w, http.StatusBadRequest, "No se pudo insertar el resgistro.")
+		utils.RespondWithError(w, http.StatusBadRequest, "No se pudo insertar el resgistro.")
 		return
 	}
-	respondWithJSON(w,http.StatusCreated,pedido)
+	utils.RespondWithJSON(w,http.StatusCreated,pedido)
 }
 
 func FindPedidoEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -64,9 +53,9 @@ func FindPedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 	idConv,_ := strconv.Atoi(pedidoId);
 	err := cPedidos.Find(bson.M{"id":idConv}).One(&resultado)
 	if (err != nil) {
-		respondWithError(w, http.StatusNotFound, "No se encontró el registro.")
+		utils.RespondWithError(w, http.StatusNotFound, "No se encontró el registro.")
 	}
-	respondWithJSON(w,http.StatusOK,resultado)
+	utils.RespondWithJSON(w,http.StatusOK,resultado)
 }
 
 func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -75,14 +64,14 @@ func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
 	 var resultado mo.Pedido
 
 	if !bson.IsObjectIdHex(pedidoId){
-		respondWithError(w, http.StatusInternalServerError, "No es un ObjectIDHex.")
+		utils.RespondWithError(w, http.StatusInternalServerError, "No es un ObjectIDHex.")
 		return
 	}
 	err := cPedidos.FindId(bson.ObjectIdHex(pedidoId)).One(&resultado)
 	if (err != nil) {
-		respondWithError(w, http.StatusNotFound, "No se encontró el registro.")
+		utils.RespondWithError(w, http.StatusNotFound, "No se encontró el registro.")
 	}
-	respondWithJSON(w,http.StatusOK,resultado)
+	utils.RespondWithJSON(w,http.StatusOK,resultado)
 }
 
 func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -99,7 +88,7 @@ func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 
 	err := decoder.Decode(&pedido_data)
 	if (err != nil) {
-		respondWithError(w, http.StatusInternalServerError, "Error al enviar json de pedido.")
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al enviar json de pedido.")
 		return
 	}
 	defer r.Body.Close()
@@ -129,13 +118,13 @@ func GetPedidosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
 
 	var idEstado,erro = strconv.Atoi(status)
 	if erro!= nil{
-		respondWithError(w, http.StatusInternalServerError, "Error al convertir parametro int.")
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al convertir parametro int.")
 	}
 	err := cPedidos.Find(bson.M{"estado":idEstado}).All(&pedidos)
 	if (err != nil) {
-		respondWithError(w, http.StatusNotFound, "No se encontró el registro.")
+		utils.RespondWithError(w, http.StatusNotFound, "No se encontró el registro.")
 	}
-	respondWithJSON(w,http.StatusOK,pedidos)
+	utils.RespondWithJSON(w,http.StatusOK,pedidos)
 }
 
 func GetCantRegistrosByEstadosEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -145,13 +134,13 @@ func GetCantRegistrosByEstadosEndpoint(w http.ResponseWriter, r *http.Request) {
 	suma := 0
 
 	if err := json.NewDecoder(r.Body).Decode(&estados); err != nil {
-		respondWithError(w, http.StatusInternalServerError, "Error al leer el body y wea.")
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al leer parametros de entrada.")
 		return
 	}
 	for _, valor := range estados {
 		cantidadReg,err := cPedidos.Find(bson.M{"estado": valor.IdEstado}).Count()
 		if(err!= nil){
-			respondWithError(w, http.StatusInternalServerError, "Error al contar regstros del id: "+valor.Nombre)
+			utils.RespondWithError(w, http.StatusInternalServerError, "Error al contar regstros del id: "+valor.Nombre)
 			return
 		}
 		cantPedidos = append(cantPedidos, cantidadReg)
@@ -160,7 +149,7 @@ func GetCantRegistrosByEstadosEndpoint(w http.ResponseWriter, r *http.Request) {
 	}
 	cantPedidos = append(cantPedidos, suma)
 
-	respondWithJSON(w,http.StatusOK,cantPedidos)
+	utils.RespondWithJSON(w,http.StatusOK,cantPedidos)
 }
 
 

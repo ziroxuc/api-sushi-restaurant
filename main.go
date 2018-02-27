@@ -19,6 +19,7 @@ func main(){
 	r.HandleFunc("/pedidoByEstado/{status}", actions.GetPedidosPorEstadodEndpoint).Methods("GET")
 	r.HandleFunc("/pedidosCount", actions.GetCantRegistrosByEstadosEndpoint).Methods("POST")
 
+
 	//r.HandleFunc("/movies", DeleteMovieEndPoint).Methods("DELETE")
 	//r.HandleFunc("/movies/{id}", FindMovieEndpoint).Methods("GET")
 
@@ -29,6 +30,14 @@ func main(){
 
 	// Handlers productos
 	r.HandleFunc("/producto", actions.CreateProductoEndPoint).Methods("POST")
+	r.HandleFunc("/productos", actions.GetAllProductosEndPoint).Methods("GET")
+	r.HandleFunc("/producto/{id}", actions.GetProductoByIdEndpoint).Methods("GET")
+	r.HandleFunc("/producto/{id}", actions.UpdateProductoEndpoint).Methods("PUT")
+	r.HandleFunc("/productos/{status}", actions.GetProductosPorEstadodEndpoint).Methods("GET")
+	r.HandleFunc("/productosCat/{category}", actions.GetProductosPorCategoriaEndpoint).Methods("GET")
+	r.HandleFunc("/producto", actions.DeleteProductoEndpoint).Methods("DELETE")
+
+
 
 
 	c := cors.New(cors.Options{
