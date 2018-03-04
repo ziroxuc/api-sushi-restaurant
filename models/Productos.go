@@ -1,9 +1,12 @@
 package models
 
-import "gopkg.in/mgo.v2/bson"
+import (
+	"gopkg.in/mgo.v2/bson"
+	"time"
+)
 
 type Producto struct {
-	ID              bson.ObjectId `bson:"_id" json:"_id"`
+	ID              bson.ObjectId `bson:"_id,omitempty" json:"_id,omitempty"`
 	Id_sushi		int			  `bson:"id_sushi" json:"id_sushi"`
 	Id_categoria	int			  `bson:"id_categoria" json:"id_categoria"`
 	Nombre      	string        `bson:"nombre" json:"nombre"`
@@ -12,13 +15,13 @@ type Producto struct {
 	Piezas      	int        	  `bson:"piezas" json:"piezas"`
 	Descripcion 	string        `bson:"descripcion" json:"descripcion"`
 	Img 			string        `bson:"img" json:"img"`
-	Create_date 	string        `bson:"create_date" json:"create_date"`
-	Mod_date 		string        `bson:"mod_date" json:"mod_date"`
+	Create_date 	time.Time      `bson:"create_date" json:"create_date"`
+	Mod_date 		time.Time      `bson:"mod_date" json:"mod_date"`
 	Estado 			int           `bson:"estado" json:"estado"`
 	Cantidad 		int			  `bson:"cantidad" json:"cantidad"`
 	Destacado		bool		  `bson:"destacado" json:"destacado"`
 	Stock			bool		  `bson:"stock" json:"stock"`
-	Personalizaciones				  `bson:"personalizacion" json:"personalizacion"`
+	Personalizaciones			  `bson:"personalizacion" json:"personalizacion"`
 }
 
 type Personalizacion struct {

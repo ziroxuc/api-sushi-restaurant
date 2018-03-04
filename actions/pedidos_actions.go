@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	mo "../models"
 	"gopkg.in/mgo.v2/bson"
-	"time"
 	"github.com/gorilla/mux"
 	"log"
 	"strconv"
 	db "../dbConnection"
 	utils "../utils"
+	"time"
 )
 
 var cPedidos = db.GetCollectionPedidos()
@@ -28,15 +28,12 @@ func AllPedidosEndPoint(w http.ResponseWriter, r *http.Request) {
 func CreatePedidoEndPoint(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	var pedido mo.Pedido
-
 	if err := json.NewDecoder(r.Body).Decode(&pedido); err != nil {
 		utils.RespondWithError(w, http.StatusInternalServerError, "Error al leer el body.")
 		return
 	}
-	pedido.ID = bson.NewObjectId()
-	t := time.Now()
-	var timeMod = t.Format("02-01-2006 15:04:05")
-	pedido.Fecha_creacion = timeMod
+	pedido.Fecha_creacion = time.Now()
+	pedido.ID = bson.NewObjectId();
 
 	if err := cPedidos.Insert(pedido); err != nil {
 		utils.RespondWithError(w, http.StatusBadRequest, "No se pudo insertar el resgistro.")

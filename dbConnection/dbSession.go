@@ -2,8 +2,11 @@ package dbConnection
 
 import "gopkg.in/mgo.v2"
 
-const SERVER = "mongodb://localhost"
+const SERVER = "mongodb://admin:admin123@localhost:27017/"
 const DATABASE_NAME = "sushi-restaurant-db"
+const USER  = "admin"
+const PASSWORD  = "admin123"
+
 
 func GetSession() *mgo.Session {
 	session, error := mgo.Dial(SERVER)
@@ -32,3 +35,10 @@ func GetCollectionCategorias() *mgo.Collection{
 	var collectionProductos= GetSession().DB(DATABASE_NAME).C("categorias")
 	return collectionProductos
 }
+
+
+func GetCollectionPromociones() *mgo.Collection{
+	var collectionProductos= GetSession().DB(DATABASE_NAME).C("promociones")
+	return collectionProductos
+}
+

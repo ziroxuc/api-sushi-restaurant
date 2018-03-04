@@ -23,9 +23,7 @@ func CreateProductoEndPoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	producto.ID = bson.NewObjectId()
-	t := time.Now()
-	var timeMod = t.Format("02-01-2006 15:04:05")
-	producto.Create_date = timeMod
+	producto.Create_date = time.Now()
 
 	if err := cProducto.Insert(producto); err != nil {
 		utils.RespondWithError(w, http.StatusInternalServerError, "Error al crear producto.")
@@ -64,6 +62,8 @@ func UpdateProductoEndpoint(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	idDeserialize := bson.ObjectIdHex(productoID);
+	producto_data.Mod_date = time.Now()
+	producto_data.Create_date = producto_data.Create_date
 
 	document := bson.M{"_id":idDeserialize}
 	change := bson.M{"$set":producto_data}

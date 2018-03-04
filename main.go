@@ -19,13 +19,9 @@ func main(){
 	r.HandleFunc("/pedidoByEstado/{status}", actions.GetPedidosPorEstadodEndpoint).Methods("GET")
 	r.HandleFunc("/pedidosCount", actions.GetCantRegistrosByEstadosEndpoint).Methods("POST")
 
-
-	//r.HandleFunc("/movies", DeleteMovieEndPoint).Methods("DELETE")
-	//r.HandleFunc("/movies/{id}", FindMovieEndpoint).Methods("GET")
-
 	// Handlers estados
+	r.HandleFunc("/estado", actions.CreateEstadoEndPoint).Methods("POST")
 	r.HandleFunc("/estados", actions.GetAllEstadosEndPoint).Methods("GET")
-
 
 
 	// Handlers productos
@@ -36,6 +32,27 @@ func main(){
 	r.HandleFunc("/productos/{status}", actions.GetProductosPorEstadodEndpoint).Methods("GET")
 	r.HandleFunc("/productosCat/{category}", actions.GetProductosPorCategoriaEndpoint).Methods("GET")
 	r.HandleFunc("/producto", actions.DeleteProductoEndpoint).Methods("DELETE")
+
+
+	// Handlers Promociones
+	r.HandleFunc("/promocion", actions.CreatePromocionEndPoint).Methods("POST")
+	r.HandleFunc("/promociones", actions.GetAllPromocionesEndPoint).Methods("GET")
+	r.HandleFunc("/promocion/{id}", actions.GetPromocionByIdEndpoint).Methods("GET")
+	r.HandleFunc("/promocion/{id}", actions.UpdatePromocionEndpoint).Methods("PUT")
+	r.HandleFunc("/promociones/{status}", actions.GetPromocionesPorEstadodEndpoint).Methods("GET")
+	r.HandleFunc("/promocion", actions.DeletePromocionEndpoint).Methods("DELETE")
+
+
+
+
+
+
+	//Categorias
+	r.HandleFunc("/categoria", actions.CreateCategoriaEndPoint).Methods("POST")
+	r.HandleFunc("/categorias", actions.GetAllCategoriasEndPoint).Methods("GET")
+	r.HandleFunc("/categoria/{id}", actions.GetCategoriaByIdEndpoint).Methods("GET")
+	r.HandleFunc("/categoria/{id}", actions.UpdateCategoriaEndpoint).Methods("PUT")
+	r.HandleFunc("/categoria", actions.DeleteCategoriaEndpoint).Methods("DELETE")
 
 
 
