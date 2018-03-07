@@ -5,6 +5,7 @@ import (
 	"log"
 	"github.com/gorilla/mux"
 	"./actions"
+	auth "./authentication"
 
 	"github.com/rs/cors"
 )
@@ -43,10 +44,6 @@ func main(){
 	r.HandleFunc("/promocion", actions.DeletePromocionEndpoint).Methods("DELETE")
 
 
-
-
-
-
 	//Categorias
 	r.HandleFunc("/categoria", actions.CreateCategoriaEndPoint).Methods("POST")
 	r.HandleFunc("/categorias", actions.GetAllCategoriasEndPoint).Methods("GET")
@@ -54,6 +51,9 @@ func main(){
 	r.HandleFunc("/categoria/{id}", actions.UpdateCategoriaEndpoint).Methods("PUT")
 	r.HandleFunc("/categoria", actions.DeleteCategoriaEndpoint).Methods("DELETE")
 
+
+	r.HandleFunc("/login", auth.Login).Methods("POST")
+	r.HandleFunc("/validate", auth.ValidateToken).Methods("GET")
 
 
 
