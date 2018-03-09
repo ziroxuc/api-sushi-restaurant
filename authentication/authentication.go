@@ -14,7 +14,13 @@ import (
 	"net/http"
 	"encoding/json"
 	"fmt"
+	utils "../utils"
+	mo "../models"
+	db "../dbConnection"
+	"gopkg.in/mgo.v2/bson"
 )
+
+var cUsuario = db.GetCollectionUsuario()
 
 var (
 	privateKey *rsa.PrivateKey
@@ -42,16 +48,14 @@ func init()  {
 		log.Fatal("No se pudo tratar la privada")
 	}
 }
-
-
 //funcion para generar token
 
 func GenerateJWT(user models.User) (string)  {
 	claims := models.Claim{
 		User:user,
 		StandardClaims:jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Hour * 1).Unix(),
-			Issuer: "taller ql",
+			ExpiresAt: time.Now().Add(time.Hour * 8).Unix(),
+			Issuer: "restaurant",
 		},
 	}
 
@@ -64,31 +68,37 @@ func GenerateJWT(user models.User) (string)  {
 }
 
 func Login(w http.ResponseWriter, r *http.Request){
-	var user models.User
-	err := json.NewDecoder(r.Body).Decode(&user)
+	var userUknown mo.User
+	err := json.NewDecoder(r.Body).Decode(&userUknown)
 	if(err != nil){
-		fmt.Fprintln(w, "Error al leer el usuario", err)
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al leer el body.")
 		return
 	}
-	
-	if user.Name == "alexys" && user.Password == "alexys"{
-		user.Password = ""
-		user.Role = "admin"
-		
-		token := GenerateJWT(user)
-		result := models.ResponseToken{token}
-		jsonResult, err := json.Marshal(result)
+
+	var user mo.User
+	err = cUsuario.Find(bson.M{"usuario":userUknown.Usuario}).One(&user)
+	if err != nil {
+		utils.RespondWithError(w, http.StatusNotFound, "Usuario o clave incorrecta.")
+		return
+	}
+
+	if user.Usuario == userUknown.Usuario && utils.ComparePassword(user.PasswordHash,userUknown.Password){
+		userUknown.Password = ""
+		userUknown.Usuario = ""
+		userUknown.Role = "USER_ADMIN"
+
+		token := GenerateJWT(userUknown)
 		if err != nil{
-			fmt.Fprintln(w,"Error al generar json")
-			return 
+			utils.RespondWithError(w, http.StatusInternalServerError, "Error al generar json de token.")
+			return
 		}
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Content-Type","application/json")
-		w.Write(jsonResult)
+		//Se asigna token creado al objeto user
+		user.Token = token
+		user.PasswordHash = nil
+		utils.RespondWithJSON(w,http.StatusOK,user)
 		
 	}else{
-		w.WriteHeader(http.StatusForbidden)
-		fmt.Fprintln(w,"Usuario o clave invalido")
+		utils.RespondWithError(w, http.StatusUnauthorized, "Usuario o clave incorrecta.")
 	}
 }
 
@@ -103,17 +113,17 @@ func ValidateToken(w http.ResponseWriter, r *http.Request)  {
 			vErr := err.(*jwt.ValidationError)
 			switch vErr.Errors{
 			case jwt.ValidationErrorExpired:
-				fmt.Fprintln(w,"Su token ha expirado")
+				utils.RespondWithError(w, http.StatusUnauthorized, "Su token ha expirado.")
 				return
 			case jwt.ValidationErrorSignatureInvalid:
-				fmt.Fprintln(w,"Su token no coincide")
+				utils.RespondWithError(w, http.StatusUnauthorized, "Su token no coincide.")
 				return
 			default:
-				fmt.Fprintln(w,"Su token exploto")
+				utils.RespondWithError(w, http.StatusUnauthorized, "Su token no es correcto.")
 				return
 			}
 		default:
-			fmt.Fprintln(w,"Su token exploto 2")
+			utils.RespondWithError(w, http.StatusUnauthorized, "Su token no es válido.")
 			return
 		}
 	}

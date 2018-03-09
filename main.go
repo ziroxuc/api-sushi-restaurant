@@ -52,6 +52,18 @@ func main(){
 	r.HandleFunc("/categoria", actions.DeleteCategoriaEndpoint).Methods("DELETE")
 
 
+
+	// Handlers Usuario
+	r.HandleFunc("/usuario", actions.CreateUsuarioEndPoint).Methods("POST")
+	r.HandleFunc("/usuarios", actions.GetAllUsuariosEndPoint).Methods("GET")
+	r.HandleFunc("/usuario/{id}", actions.GetUsuarioByIdEndpoint).Methods("GET")
+	r.HandleFunc("/usuario/{id}", actions.UpdateUsuarioEndpoint).Methods("PUT")
+	r.HandleFunc("/usuarios/{status}", actions.GetUsuariosPorEstadodEndpoint).Methods("GET")
+	r.HandleFunc("/usuario", actions.DeleteUsuarioEndpoint).Methods("DELETE")
+
+
+
+	//Login
 	r.HandleFunc("/login", auth.Login).Methods("POST")
 	r.HandleFunc("/validate", auth.ValidateToken).Methods("GET")
 

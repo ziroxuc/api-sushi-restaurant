@@ -35,10 +35,12 @@ func GetCollectionCategorias() *mgo.Collection{
 	var collectionProductos= GetSession().DB(DATABASE_NAME).C("categorias")
 	return collectionProductos
 }
-
-
 func GetCollectionPromociones() *mgo.Collection{
 	var collectionProductos= GetSession().DB(DATABASE_NAME).C("promociones")
 	return collectionProductos
+}
+func GetCollectionUsuario() *mgo.Collection{
+	var collectionUsuario = GetSession().DB(DATABASE_NAME).C("usuario")
+	return collectionUsuario
 }
 
