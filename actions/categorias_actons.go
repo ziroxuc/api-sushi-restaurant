@@ -9,11 +9,19 @@ import (
 	"github.com/gorilla/mux"
 	db "../dbConnection"
 	"fmt"
+	auth "../authentication"
 )
 
 var cCategoria = db.GetCollectionCategorias()
 
 func CreateCategoriaEndPoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	defer r.Body.Close()
 	var categoria mo.Categoria
 	if err := json.NewDecoder(r.Body).Decode(&categoria); err != nil {
@@ -30,6 +38,7 @@ func CreateCategoriaEndPoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetAllCategoriasEndPoint(w http.ResponseWriter, r *http.Request) {
+
 	var categorias mo.Categorias
 	err := cCategoria.Find(nil).Sort("+nombre").All(&categorias)
 	if err != nil {
@@ -56,6 +65,12 @@ func GetCategoriaByIdEndpoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateCategoriaEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
 
 	params := mux.Vars(r)
 	categoriaID := params["id"]
@@ -89,6 +104,12 @@ func UpdateCategoriaEndpoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteCategoriaEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
 
 	defer r.Body.Close()
 	var categoria mo.Categoria

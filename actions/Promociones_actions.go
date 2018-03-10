@@ -11,11 +11,19 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"fmt"
 	"strconv"
+	auth "../authentication"
 )
 
 var cPromocion = db.GetCollectionPromociones()
 
 func CreatePromocionEndPoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	defer r.Body.Close()
 	var promocion mo.Promocion
 	if err := json.NewDecoder(r.Body).Decode(&promocion); err != nil {
@@ -43,6 +51,12 @@ func GetAllPromocionesEndPoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdatePromocionEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
 
 	params := mux.Vars(r)
 	PromocionID := params["id"]
@@ -95,6 +109,12 @@ func GetPromocionesPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeletePromocionEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
 
 	defer r.Body.Close()
 	var Promocion mo.Promocion

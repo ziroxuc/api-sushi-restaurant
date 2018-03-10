@@ -65,14 +65,14 @@ func main(){
 
 	//Login
 	r.HandleFunc("/login", auth.Login).Methods("POST")
-	r.HandleFunc("/validate", auth.ValidateToken).Methods("GET")
+	//r.HandleFunc("/validate", auth.ValidateToken).Methods("GET")
 
 
 
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"http://localhost:4200","http://localhost:4300"},
+		AllowedOrigins: []string{"*"},
 		AllowCredentials: true,
-		AllowedHeaders:[]string{"X-Requested-With","content-type"},
+		AllowedHeaders:[]string{"Access-Control-Allow-Headers", "Accept", "Content-Type", "Content-Length", "Accept-Encoding"," X-CSRF-Token", "Authorization","X-Requested-With"},
 		AllowedMethods:[]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"},
 	})
 	handler := c.Handler(r)

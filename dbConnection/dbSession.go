@@ -40,7 +40,7 @@ func GetCollectionPromociones() *mgo.Collection{
 	return collectionProductos
 }
 func GetCollectionUsuario() *mgo.Collection{
-	var collectionUsuario = GetSession().DB(DATABASE_NAME).C("usuario")
+	var collectionUsuario = GetSession().DB(DATABASE_NAME).C("usuarios")
 	return collectionUsuario
 }
 

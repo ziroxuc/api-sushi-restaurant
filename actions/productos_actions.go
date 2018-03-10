@@ -11,11 +11,19 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"fmt"
 	"strconv"
+	auth "../authentication"
 )
 
 var cProducto = db.GetCollectionProductos()
 
 func CreateProductoEndPoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	defer r.Body.Close()
 	var producto mo.Producto
 	if err := json.NewDecoder(r.Body).Decode(&producto); err != nil {
@@ -43,6 +51,12 @@ func GetAllProductosEndPoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateProductoEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
 
 	params := mux.Vars(r)
 	productoID := params["id"]
@@ -111,6 +125,12 @@ func GetProductosPorCategoriaEndpoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteProductoEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
 
 	defer r.Body.Close()
 	var producto mo.Producto

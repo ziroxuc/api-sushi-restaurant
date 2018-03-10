@@ -5,13 +5,20 @@ import (
 	mo "../models"
 	db "../dbConnection"
 	utils "../utils"
-
+	auth "../authentication"
 	"encoding/json"
 	"gopkg.in/mgo.v2/bson"
 )
 var cEstados = db.GetCollectionEstados()
 
 func CreateEstadoEndPoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	defer r.Body.Close()
 	var estado mo.EstadoObj
 	if err := json.NewDecoder(r.Body).Decode(&estado); err != nil {

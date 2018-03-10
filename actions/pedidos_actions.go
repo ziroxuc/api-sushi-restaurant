@@ -11,6 +11,7 @@ import (
 	db "../dbConnection"
 	utils "../utils"
 	"time"
+	auth "../authentication"
 )
 
 var cPedidos = db.GetCollectionPedidos()
@@ -73,6 +74,12 @@ func FindPedidoIdEndpoint(w http.ResponseWriter, r *http.Request) {
 
 func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	params := mux.Vars(r)
 	pedidoId := params["id"]
 
@@ -125,6 +132,13 @@ func GetPedidosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetCantRegistrosByEstadosEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	defer r.Body.Close()
 	var estados []mo.EstadoObj
 	var cantPedidos []int
@@ -145,7 +159,6 @@ func GetCantRegistrosByEstadosEndpoint(w http.ResponseWriter, r *http.Request) {
 
 	}
 	cantPedidos = append(cantPedidos, suma)
-
 	utils.RespondWithJSON(w,http.StatusOK,cantPedidos)
 }
 

@@ -11,11 +11,19 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"fmt"
 	"strconv"
+	auth "../authentication"
 )
 
 var cUsuario = db.GetCollectionUsuario()
 
 func CreateUsuarioEndPoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	defer r.Body.Close()
 	var usuario mo.User
 	if err := json.NewDecoder(r.Body).Decode(&usuario); err != nil {
@@ -37,6 +45,13 @@ func CreateUsuarioEndPoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetAllUsuariosEndPoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	var usuarios []mo.User
 	err := cUsuario.Find(nil).Sort("+nombre").All(&usuarios)
 	if err != nil {
@@ -47,6 +62,12 @@ func GetAllUsuariosEndPoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateUsuarioEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
 
 	params := mux.Vars(r)
 	UsuarioID := params["id"]
@@ -83,6 +104,13 @@ func UpdateUsuarioEndpoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUsuariosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	params := mux.Vars(r)
 	status := params["status"]
 	var Usuarios []mo.User
@@ -100,6 +128,12 @@ func GetUsuariosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
 
 func DeleteUsuarioEndpoint(w http.ResponseWriter, r *http.Request) {
 
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	defer r.Body.Close()
 	var Usuario mo.User
 	if err := json.NewDecoder(r.Body).Decode(&Usuario); err != nil {
@@ -116,6 +150,13 @@ func DeleteUsuarioEndpoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUsuarioByIdEndpoint(w http.ResponseWriter, r *http.Request) {
+
+	isAuth := auth.ValidateToken(r)
+	if(isAuth != ""){
+		utils.RespondWithError(w, http.StatusUnauthorized, isAuth)
+		return
+	}
+
 	params := mux.Vars(r)
 	idProd := params["id"]
 	var Usuario mo.User

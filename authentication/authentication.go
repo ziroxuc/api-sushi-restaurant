@@ -13,7 +13,6 @@ import (
 	"time"
 	"net/http"
 	"encoding/json"
-	"fmt"
 	utils "../utils"
 	mo "../models"
 	db "../dbConnection"
@@ -102,37 +101,29 @@ func Login(w http.ResponseWriter, r *http.Request){
 	}
 }
 
-func ValidateToken(w http.ResponseWriter, r *http.Request)  {
+func ValidateToken(r *http.Request) string  {
 	token, err := request.ParseFromRequestWithClaims(r, request.OAuth2Extractor,&models.Claim{}, func(token *jwt.Token) (interface{}, error) {
 		return publicKey,nil
 	})
-
 	if err!= nil{
 		switch err.(type) {
 		case *jwt.ValidationError:
 			vErr := err.(*jwt.ValidationError)
 			switch vErr.Errors{
 			case jwt.ValidationErrorExpired:
-				utils.RespondWithError(w, http.StatusUnauthorized, "Su token ha expirado.")
-				return
+				return "Su token ha expirado."
 			case jwt.ValidationErrorSignatureInvalid:
-				utils.RespondWithError(w, http.StatusUnauthorized, "Su token no coincide.")
-				return
+				return "Su token no coincide."
 			default:
-				utils.RespondWithError(w, http.StatusUnauthorized, "Su token no es correcto.")
-				return
+				return "Su token no es correcto."
 			}
 		default:
-			utils.RespondWithError(w, http.StatusUnauthorized, "Su token no es válido.")
-			return
+			return "Su token no es válido."
 		}
 	}
-
 	if token.Valid{
-		w.WriteHeader(http.StatusAccepted)
-		fmt.Fprintln(w,"Bienvenido al sistema")
+		return ""
 	}else{
-		w.WriteHeader(http.StatusUnauthorized)
-		fmt.Fprintln(w, "su token no es valido inautorizado")
+		return "su token no es valido inautorizado"
 	}
 }
