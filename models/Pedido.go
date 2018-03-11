@@ -5,6 +5,11 @@ import (
 	"time"
 )
 
+type PedidoT struct {
+	Pedidos `bson:"pedidos" json:"pedidos"`
+	TotalRows int `bson:"totalRows" json:"totalRows"`
+}
+
 type Pedido struct {
 	ID             bson.ObjectId `bson:"_id,omitempty" json:"_id"`
 	Productos	  `bson:"productos" json:"productos"`
@@ -15,6 +20,7 @@ type Pedido struct {
 	Total	int	  `bson:"total" json:"total"`
 }
 
+type Pedidos []Pedido
 
 
 

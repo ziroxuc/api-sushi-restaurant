@@ -17,7 +17,7 @@ func main(){
 	r.HandleFunc("/pedidos", actions.AllPedidosEndPoint).Methods("GET")
 	r.HandleFunc("/pedido", actions.CreatePedidoEndPoint).Methods("POST")
 	r.HandleFunc("/pedido/{id}", actions.UpdatePedidoEndpoint).Methods("PUT")
-	r.HandleFunc("/pedidoByEstado/{status}", actions.GetPedidosPorEstadodEndpoint).Methods("GET")
+	r.HandleFunc("/pedidosByEstado", actions.GetPedidosPorEstadodEndpoint).Methods("POST")
 	r.HandleFunc("/pedidosCount", actions.GetCantRegistrosByEstadosEndpoint).Methods("POST")
 
 	// Handlers estados
@@ -65,7 +65,7 @@ func main(){
 
 	//Login
 	r.HandleFunc("/login", auth.Login).Methods("POST")
-	//r.HandleFunc("/validate", auth.ValidateToken).Methods("GET")
+	r.HandleFunc("/validate", auth.IsValidToken).Methods("GET")
 
 
 

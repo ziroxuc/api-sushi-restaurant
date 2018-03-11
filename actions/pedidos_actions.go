@@ -12,6 +12,7 @@ import (
 	utils "../utils"
 	"time"
 	auth "../authentication"
+	"fmt"
 )
 
 var cPedidos = db.GetCollectionPedidos()
@@ -115,20 +116,42 @@ func UpdatePedidoEndpoint(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(pedido_data)
 }
 
-func GetPedidosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	status := params["status"]
-	var pedidos []mo.Pedido
+func GetPedidosPorEstadodEndpoint(w http.ResponseWriter, r *http.Request)  {
 
-	var idEstado,erro = strconv.Atoi(status)
-	if erro!= nil{
-		utils.RespondWithError(w, http.StatusInternalServerError, "Error al convertir parametro int.")
+	defer r.Body.Close()
+	var paginator mo.Paginator
+	if err := json.NewDecoder(r.Body).Decode(&paginator); err != nil {
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al leer el paginator.")
+		return
 	}
-	err := cPedidos.Find(bson.M{"estado":idEstado}).All(&pedidos)
-	if (err != nil) {
-		utils.RespondWithError(w, http.StatusNotFound, "No se encontró el registro.")
+	var pedidos []mo.Pedido
+	var limit = paginator.ItemsPerPage
+	var pagina = paginator.Pagina
+	var idEstado = paginator.OpcionNumber
+
+	//fechaHasta := time.Now()
+	//fechaDesde := fechaHasta.Add(-30 * time.Minute)
+
+	fechaHasta := time.Now()
+	fechaDesde := fechaHasta.Add(-30 * time.Minute)
+
+	q := cPedidos.Find(bson.M{"estado":idEstado,"fecha_creacion":bson.M{"$gt":fechaDesde,"$lt":fechaHasta}  }).Sort("+fecha_creacion").Limit(limit).Skip((pagina - 1) * limit).All(&pedidos)
+	if(q != nil){
+		fmt.Println(q)
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al paginar pedidos")
 	}
-	utils.RespondWithJSON(w,http.StatusOK,pedidos)
+
+	cantidadReg,err := cPedidos.Find(bson.M{"estado": idEstado,"fecha_creacion":bson.M{"$gt":fechaDesde,"$lt":fechaHasta} }).Count()
+	if(err!= nil){
+		utils.RespondWithError(w, http.StatusInternalServerError, "Error al contar total registros")
+		return
+	}
+
+	var pedidoT mo.PedidoT
+	pedidoT.Pedidos = pedidos
+	pedidoT.TotalRows = cantidadReg
+
+	utils.RespondWithJSON(w,http.StatusOK,pedidoT)
 }
 
 func GetCantRegistrosByEstadosEndpoint(w http.ResponseWriter, r *http.Request) {

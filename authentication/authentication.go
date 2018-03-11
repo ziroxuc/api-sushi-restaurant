@@ -127,3 +127,36 @@ func ValidateToken(r *http.Request) string  {
 		return "su token no es valido inautorizado"
 	}
 }
+
+
+func IsValidToken(w http.ResponseWriter,r *http.Request)  {
+	token, err := request.ParseFromRequestWithClaims(r, request.OAuth2Extractor,&models.Claim{}, func(token *jwt.Token) (interface{}, error) {
+		return publicKey,nil
+	})
+	if err!= nil{
+		switch err.(type) {
+		case *jwt.ValidationError:
+			vErr := err.(*jwt.ValidationError)
+			switch vErr.Errors{
+			case jwt.ValidationErrorExpired:
+				utils.RespondWithError(w, http.StatusUnauthorized, "false")
+				return
+			case jwt.ValidationErrorSignatureInvalid:
+				utils.RespondWithError(w, http.StatusUnauthorized, "false")
+				return
+			default:
+				utils.RespondWithError(w, http.StatusUnauthorized, "false")
+				return
+			}
+		default:
+			utils.RespondWithError(w, http.StatusUnauthorized, "false")
+			return
+		}
+	}
+	if token.Valid{
+		utils.RespondWithJSON(w ,http.StatusOK ,true)
+	}else{
+		utils.RespondWithError(w, http.StatusUnauthorized, "false")
+		return
+	}
+}

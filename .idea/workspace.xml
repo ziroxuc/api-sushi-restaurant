@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b886ea-5526-45fd-942b-ffbd7bae0ba6" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/models/Paginator.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/actions/Promociones_actions.go" afterPath="$PROJECT_DIR$/actions/Promociones_actions.go" />
-      <change beforePath="$PROJECT_DIR$/actions/categorias_actons.go" afterPath="$PROJECT_DIR$/actions/categorias_actons.go" />
-      <change beforePath="$PROJECT_DIR$/actions/estados_actions.go" afterPath="$PROJECT_DIR$/actions/estados_actions.go" />
       <change beforePath="$PROJECT_DIR$/actions/pedidos_actions.go" afterPath="$PROJECT_DIR$/actions/pedidos_actions.go" />
-      <change beforePath="$PROJECT_DIR$/actions/productos_actions.go" afterPath="$PROJECT_DIR$/actions/productos_actions.go" />
-      <change beforePath="$PROJECT_DIR$/actions/usuario_actions.go" afterPath="$PROJECT_DIR$/actions/usuario_actions.go" />
       <change beforePath="$PROJECT_DIR$/authentication/authentication.go" afterPath="$PROJECT_DIR$/authentication/authentication.go" />
-      <change beforePath="$PROJECT_DIR$/dbConnection/dbSession.go" afterPath="$PROJECT_DIR$/dbConnection/dbSession.go" />
       <change beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
+      <change beforePath="$PROJECT_DIR$/models/Pedido.go" afterPath="$PROJECT_DIR$/models/Pedido.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,19 +18,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="usuario_actions.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/actions/usuario_actions.go">
+      <file leaf-file-name="Paginator.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Paginator.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="151" column="68" lean-forward="false" selection-start-line="151" selection-start-column="68" selection-end-line="151" selection-end-column="68" />
+            <state relative-caret-position="231">
+              <caret line="11" column="70" lean-forward="false" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="70" />
               <folding>
-                <element signature="n#!!block;n#CreateUsuarioEndPoint#0" expanded="false" />
-                <element signature="n#!!block;n#GetAllUsuariosEndPoint#0" expanded="false" />
-                <element signature="n#!!block;n#UpdateUsuarioEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#GetUsuariosPorEstadodEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#DeleteUsuarioEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#GetUsuarioByIdEndpoint#0" expanded="false" />
+                <element signature="e#16#29#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pedido.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Pedido.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="e#16#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="67" column="27" lean-forward="false" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -42,44 +55,46 @@
       <file leaf-file-name="pedidos_actions.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/actions/pedidos_actions.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="133" column="5" lean-forward="false" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
+            <state relative-caret-position="408">
+              <caret line="145" column="8" lean-forward="true" selection-start-line="145" selection-start-column="8" selection-end-line="145" selection-end-column="100" />
               <folding>
-                <element signature="e#17#214#0" expanded="true" />
+                <element signature="e#17#221#0" expanded="true" />
                 <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
                 <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
                 <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
                 <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
                 <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+                <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.go">
+      <file leaf-file-name="authentication.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/authentication/authentication.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="72" column="35" lean-forward="false" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="450">
+              <caret line="156" column="52" lean-forward="false" selection-start-line="156" selection-start-column="52" selection-end-line="156" selection-end-column="52" />
+              <folding>
+                <element signature="n#!!block;n#init#0" expanded="false" />
+                <element signature="n#!!block;n#GenerateJWT#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Promociones_actions.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/actions/Promociones_actions.go">
+      <file leaf-file-name="productos_actions.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/actions/productos_actions.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="110" column="69" lean-forward="false" selection-start-line="110" selection-start-column="69" selection-end-line="110" selection-end-column="69" />
+            <state relative-caret-position="429">
+              <caret line="146" column="4" lean-forward="true" selection-start-line="146" selection-start-column="4" selection-end-line="146" selection-end-column="83" />
               <folding>
-                <element signature="e#17#214#0" expanded="true" />
-                <element signature="n#!!block;n#CreatePromocionEndPoint#0" expanded="false" />
-                <element signature="n#!!block;n#GetAllPromocionesEndPoint#0" expanded="false" />
-                <element signature="n#!!block;n#UpdatePromocionEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#GetPromocionesPorEstadodEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#DeletePromocionEndpoint#0" expanded="false" />
-                <element signature="n#!!block;n#GetPromocionByIdEndpoint#0" expanded="false" />
+                <element signature="n#!!block;n#CreateProductoEndPoint#0" expanded="false" />
+                <element signature="n#!!block;n#GetAllProductosEndPoint#0" expanded="false" />
+                <element signature="n#!!block;n#UpdateProductoEndpoint#0" expanded="false" />
+                <element signature="n#!!block;n#GetProductosPorEstadodEndpoint#0" expanded="false" />
+                <element signature="n#!!block;n#GetProductosPorCategoriaEndpoint#0" expanded="false" />
+                <element signature="n#!!block;n#GetProductoByIdEndpoint#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -103,6 +118,7 @@
       <find>Producto</find>
       <find>Usuario</find>
       <find>User</find>
+      <find>.Sort</find>
     </findStrings>
     <replaceStrings>
       <replace>mo.Movie</replace>
@@ -129,7 +145,6 @@
         <option value="$PROJECT_DIR$/dbConnection/dbSesson.go" />
         <option value="$PROJECT_DIR$/models/Estados.go" />
         <option value="$PROJECT_DIR$/models/DatosUsuario.go" />
-        <option value="$PROJECT_DIR$/models/Pedido.go" />
         <option value="$PROJECT_DIR$/models/Productos.go" />
         <option value="$PROJECT_DIR$/models/Categorias.go" />
         <option value="$PROJECT_DIR$/models/Categoria.go" />
@@ -140,14 +155,16 @@
         <option value="$PROJECT_DIR$/models/Usuario.go" />
         <option value="$PROJECT_DIR$/models/User.go" />
         <option value="$PROJECT_DIR$/dbConnection/dbSession.go" />
-        <option value="$PROJECT_DIR$/authentication/authentication.go" />
         <option value="$PROJECT_DIR$/actions/categorias_actons.go" />
         <option value="$PROJECT_DIR$/actions/estados_actions.go" />
-        <option value="$PROJECT_DIR$/actions/pedidos_actions.go" />
         <option value="$PROJECT_DIR$/actions/productos_actions.go" />
         <option value="$PROJECT_DIR$/actions/Promociones_actions.go" />
         <option value="$PROJECT_DIR$/actions/usuario_actions.go" />
+        <option value="$PROJECT_DIR$/models/Pedido.go" />
+        <option value="$PROJECT_DIR$/models/Paginator.go" />
+        <option value="$PROJECT_DIR$/actions/pedidos_actions.go" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/authentication/authentication.go" />
       </list>
     </option>
   </component>
@@ -157,7 +174,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="368" />
     <option name="y" value="193" />
     <option name="width" value="1099" />
@@ -194,6 +211,11 @@
               <item name="api-sushi-restaurant" type="b2602c69:ProjectViewProjectNode" />
               <item name="api-sushi-restaurant" type="462c0819:PsiDirectoryNode" />
               <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api-sushi-restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api-sushi-restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="authentication" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -241,19 +263,19 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16505896" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16720258" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5083333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943925" sideWeight="0.49785638" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943925" sideWeight="0.49356914" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.3869239" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.6130761" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.317757" sideWeight="0.41907823" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20911215" sideWeight="0.3772776" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20911215" sideWeight="0.6227224" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.317757" sideWeight="0.41103965" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -261,7 +283,6 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.49785176" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.49791667" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943925" sideWeight="0.49785638" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -291,24 +312,55 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/actions/pedidos_actions.go</url>
-          <line>135</line>
-          <properties />
+          <line>158</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/actions/pedidos_actions.go</url>
+          <line>120</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/actions/pedidos_actions.go</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/authentication/authentication.go</url>
+          <line>135</line>
+          <properties />
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="77" />
+      <option name="time" value="81" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="err" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>utils.ComparePassword(user.PasswordHash,userUknown.Password)</expression-string>
+        <expression-string>q</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>paginator</expression-string>
         <language-id>go</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
         <expression-string>err</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>utils.ComparePassword(user.PasswordHash,userUknown.Password)</expression-string>
         <language-id>go</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -337,56 +389,9 @@
         <language-id>go</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>pedido_data</expression-string>
-        <language-id>go</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>change</expression-string>
-        <language-id>go</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/Productos.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/DatosUsuario.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/actions/pedidos_actions.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
-          <folding>
-            <element signature="e#17#214#0" expanded="true" />
-            <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Pedido.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -414,13 +419,13 @@
         <state relative-caret-position="1071">
           <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
           <folding>
-            <element signature="e#17#214#0" expanded="true" />
+            <element signature="e#17#221#0" expanded="true" />
             <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -460,13 +465,13 @@
         <state relative-caret-position="630">
           <caret line="41" column="67" lean-forward="false" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
           <folding>
-            <element signature="e#17#214#0" expanded="true" />
+            <element signature="e#17#221#0" expanded="true" />
             <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
             <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -528,31 +533,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/github.com/rs/cors/cors.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3738">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../src/github.com/gorilla/mux/context_native.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/github.com/gorilla/mux/mux.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="1917" column="0" lean-forward="false" selection-start-line="1917" selection-start-column="0" selection-end-line="1917" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -570,38 +554,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/Estados.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Productos.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Promocion.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/Claim.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Pedido.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -621,18 +577,6 @@
         <state relative-caret-position="832">
           <caret line="42" column="70" lean-forward="false" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/authentication/authentication.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315">
-          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="22" />
-          <folding>
-            <element signature="e#99#355#0" expanded="true" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#GenerateJWT#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -671,29 +615,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actions/productos_actions.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="126" column="68" lean-forward="false" selection-start-line="126" selection-start-column="68" selection-end-line="126" selection-end-column="68" />
-          <folding>
-            <element signature="e#17#214#0" expanded="true" />
-            <element signature="n#!!block;n#CreateProductoEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetAllProductosEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdateProductoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetProductosPorEstadodEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetProductosPorCategoriaEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#DeleteProductoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetProductoByIdEndpoint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/actions/Promociones_actions.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="110" column="69" lean-forward="false" selection-start-line="110" selection-start-column="69" selection-end-line="110" selection-end-column="69" />
           <folding>
-            <element signature="e#17#214#0" expanded="true" />
+            <element signature="e#17#214#0" expanded="false" />
             <element signature="n#!!block;n#CreatePromocionEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#GetAllPromocionesEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#UpdatePromocionEndpoint#0" expanded="false" />
@@ -704,10 +631,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/Promocion.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="75" lean-forward="false" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/github.com/rs/cors/cors.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/github.com/gorilla/mux/mux.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Estados.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Productos.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/actions/usuario_actions.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="151" column="68" lean-forward="false" selection-start-line="151" selection-start-column="68" selection-end-line="151" selection-end-column="68" />
+          <caret line="151" column="68" lean-forward="true" selection-start-line="151" selection-start-column="68" selection-end-line="151" selection-end-column="68" />
           <folding>
             <element signature="n#!!block;n#CreateUsuarioEndPoint#0" expanded="false" />
             <element signature="n#!!block;n#GetAllUsuariosEndPoint#0" expanded="false" />
@@ -719,27 +686,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actions/pedidos_actions.go">
+    <entry file="file://$PROJECT_DIR$/models/Paginator.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="133" column="5" lean-forward="false" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
+        <state relative-caret-position="231">
+          <caret line="11" column="70" lean-forward="false" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="70" />
           <folding>
-            <element signature="e#17#214#0" expanded="true" />
-            <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
-            <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
-            <element signature="n#!!block;n#GetPedidosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="e#16#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Pedido.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#16#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="72" column="35" lean-forward="false" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+        <state relative-caret-position="294">
+          <caret line="67" column="27" lean-forward="false" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/github.com/dgrijalva/jwt-go/parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/github.com/dgrijalva/jwt-go/token.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/github.com/dgrijalva/jwt-go/request/request.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="1918" column="0" lean-forward="false" selection-start-line="1918" selection-start-column="0" selection-end-line="1918" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actions/productos_actions.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="146" column="4" lean-forward="true" selection-start-line="146" selection-start-column="4" selection-end-line="146" selection-end-column="83" />
+          <folding>
+            <element signature="n#!!block;n#CreateProductoEndPoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetAllProductosEndPoint#0" expanded="false" />
+            <element signature="n#!!block;n#UpdateProductoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetProductosPorEstadodEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetProductosPorCategoriaEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetProductoByIdEndpoint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actions/pedidos_actions.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="145" column="8" lean-forward="true" selection-start-line="145" selection-start-column="8" selection-end-line="145" selection-end-column="100" />
+          <folding>
+            <element signature="e#17#221#0" expanded="true" />
+            <element signature="n#!!block;n#AllPedidosEndPoint#0" expanded="false" />
+            <element signature="n#!!block;n#CreatePedidoEndPoint#0" expanded="false" />
+            <element signature="n#!!block;n#FindPedidoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#FindPedidoIdEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePedidoEndpoint#0" expanded="false" />
+            <element signature="n#!!block;n#GetCantRegistrosByEstadosEndpoint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/authentication/authentication.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="156" column="52" lean-forward="false" selection-start-line="156" selection-start-column="52" selection-end-line="156" selection-end-column="52" />
+          <folding>
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#GenerateJWT#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
